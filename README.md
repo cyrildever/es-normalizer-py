@@ -17,7 +17,7 @@ It's based on the work for the Empreinte Sociométrique&trade; patented by Cyril
 ### TypeScript version
 
 The TypeScript library lives at [cyrildever/es-normalizer](https://github.com/cyrildever/es-normalizer) and is published on npm as `es-normalizer`.
-Version 0.2.4 of this port matches its version 2.4.0: both give the same outputs for the same inputs, the test suite of es-normalizer is ported here case by case, and their dictionaries are the same.
+Version `0.2.4` of this port matches its version `2.4.0`: both give the same outputs for the same inputs, the test suite of es-normalizer is ported here case by case, and their dictionaries are the same.
 An address dictionary key may hold several words (eg. `CENTRE COMMERCIAL`), translated together before the single words, the longest first.
 
 ### Usage
