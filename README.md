@@ -1,5 +1,5 @@
 # es-normalizer-py
-_Contact data normalization adapted from the Empreinte Sociométrique's normalizers_
+_Contact data normalization adapted from the Empreinte Sociométrique's normalizers (in Python)_
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/cyrildever/es-normalizer-py)
 ![GitHub last commit](https://img.shields.io/github/last-commit/cyrildever/es-normalizer-py)
@@ -94,4 +94,4 @@ See the [LICENSE](LICENSE) file.
 
 
 <hr />
-&copy; 2020-2026 Cyril Dever. All rights reserved.
+&copy; 2026 Cyril Dever. All rights reserved.
