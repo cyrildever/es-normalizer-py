@@ -21,10 +21,12 @@ def uniformize(data: str) -> Optional[str]:
     """
     Upper-cases the passed string without its accents, any run of other characters than letters, digits and dashes becoming a single space
     """
-    normalized = "".join(c for c in unicodedata.normalize("NFD", data.strip().lower()) if not "̀" <= c <= "ͯ")
+    # The compatibility decomposition spells out superscripts and typographic ligatures, eg. `1ᵉʳ` or `ﬁ`; `º` and `№` would become an `o`
+    lowered = data.strip().lower().replace("º", "°").replace("№", "n°")
+    normalized = "".join(c for c in unicodedata.normalize("NFKD", lowered) if not "\u0300" <= c <= "\u036f")
     if normalized == "":
         return None
-    uniformized = normalized.replace("ß", "ss").replace("ø", "o")
+    uniformized = normalized.replace("ß", "ss").replace("ø", "o").replace("œ", "oe").replace("æ", "ae")
     uniformized = re.sub(r"[^a-zA-Z0-9-]+", "-", uniformized)
     uniformized = re.sub(r"-+", "-", uniformized).replace("-", " ").strip().upper()
     return uniformized or None

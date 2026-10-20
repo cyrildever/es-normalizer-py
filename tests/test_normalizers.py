@@ -30,6 +30,13 @@ from es_normalizer import (
 class TestUniformize(TestCase):
     def test_dismiss_any_weird_character(self):
         self.assertEqual(uniformize(" cAfé#@~eT*%chocolAT )"), "CAFE ET CHOCOLAT")
+        self.assertEqual(uniformize("Bœuf Lætitia ŒUVRE"), "BOEUF LAETITIA OEUVRE")
+        self.assertEqual(uniformize("Albert 1ᵉʳ, Mᵐᵉ"), "ALBERT 1ER MME")
+        self.assertEqual(uniformize("ﬁlature ﬂeurie"), "FILATURE FLEURIE")
+        self.assertEqual(uniformize("Ｒｕｅ"), "RUE")
+        self.assertEqual(uniformize("Nº 12"), "N 12")
+        self.assertEqual(uniformize("№ 12"), "N 12")
+        self.assertEqual(uniformize("N° 12"), "N 12")
 
 
 class TestAddressLine(TestCase):
@@ -64,6 +71,12 @@ class TestAddressLine(TestCase):
         self.assertEqual(normalize("Zone d'Aménagement Concerté de la Plaine", AddressLine()), "ZAC PLAINE")
         self.assertEqual(normalize("Promenade des Anglais", AddressLine()), "PROM ANGLAIS")
         self.assertEqual(normalize("4 Chaussée Jules César", AddressLine()), "4 CHS JULES CESAR")
+        self.assertEqual(normalize("67 Cr Gambetta", AddressLine()), "67 CRS GAMBETTA")
+        self.assertEqual(normalize("24 Av. du Gén de Gaulle", AddressLine()), "24 AV GAL GAULLE")
+        self.assertEqual(normalize("26 b Av. du Commandant Lisiack", AddressLine()), "26 B AV CDT LISIACK")
+        self.assertEqual(normalize("15 Parv. de la Défense", AddressLine()), "15 PRV DEFENSE")
+        self.assertEqual(normalize("2 A Montée de Saint-Menet", AddressLine()), "2 A MTE ST MENET")
+        self.assertEqual(normalize("3 Grand-Rue", AddressLine()), "3 GDE RUE")
 
 
 class TestAddressLine6(TestCase):
