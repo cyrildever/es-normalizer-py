@@ -56,6 +56,14 @@ class TestAddressLine(TestCase):
         self.assertEqual(normalize("Esplanade du Maréchal Foch", AddressLine()), "ESP MAL FOCH")
         self.assertEqual(normalize("3 boul. du Docteur Roux", AddressLine()), "3 BD DR ROUX")
         self.assertEqual(normalize("Paris Cx 09", AddressLine()), "PARIS CDX 09")
+        self.assertEqual(normalize("1869 Chem. de Charlemagne", AddressLine()), "1869 CH CHARLEMAGNE")
+        self.assertEqual(normalize("12 Fg Saint-Antoine", AddressLine()), "12 FBG ST ANTOINE")
+        self.assertEqual(normalize("Z.I. des Paluds", AddressLine()), "ZI PALUDS")
+        self.assertEqual(normalize("Zone Industrielle des Paluds", AddressLine()), "ZI PALUDS")
+        self.assertEqual(normalize("ZA du Moulin", AddressLine()), "ZA MOULIN")
+        self.assertEqual(normalize("Zone d'Aménagement Concerté de la Plaine", AddressLine()), "ZAC PLAINE")
+        self.assertEqual(normalize("Promenade des Anglais", AddressLine()), "PROM ANGLAIS")
+        self.assertEqual(normalize("4 Chaussée Jules César", AddressLine()), "4 CHS JULES CESAR")
 
 
 class TestAddressLine6(TestCase):
